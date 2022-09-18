@@ -5,6 +5,8 @@
 #
 # GPL 2 or higher
 
+export AWS_DEFAULT_OUTPUT="json"
+
 if [ ! -t 0 ]
 then
   echo Must be on a tty >&2
