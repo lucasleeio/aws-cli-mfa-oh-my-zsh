@@ -4,10 +4,13 @@ getaws()
   if [[ $1 =~ [0-9]{6} ]]
   then 
     eval $(AWS_MFA_CODE=$1 ~/.oh-my-zsh/custom/plugins/aws-mfa/get-aws-creds)
-  elif [ -n $3 ]
+  elif [[ -n $3 ]]
   then
     eval $(AWS_PROFILE=$1 AWS_MFA_CODE=$2 DESTINATION_PROFILE=$3 ~/.oh-my-zsh/custom/plugins/aws-mfa/get-aws-creds)
-  else
+  elif [[ -n $1 ]]
+  then
     eval $(AWS_PROFILE=$1 AWS_MFA_CODE=$2 ~/.oh-my-zsh/custom/plugins/aws-mfa/get-aws-creds)
+  else
+    eval $(AWS_PROFILE="default" ~/.oh-my-zsh/custom/plugins/aws-mfa/get-aws-creds)
   fi
 }
