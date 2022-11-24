@@ -1,0 +1,5 @@
+_getaws_complete()
+{
+    COMPREPLY=($(compgen -W "$(aws_profiles)" "${COMP_WORDS[COMP_CWORD]}"))
+}
+complete -F _getaws_complete getaws
